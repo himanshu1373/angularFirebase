@@ -1,0 +1,33 @@
+<md-menu-content layout-padding>
+	<md-menu-item>
+		<md-button ng-click="vm.click('/home')" class="md-primary">
+			<span>Home</span>
+		</md-button>
+	</md-menu-item>
+
+	<span ng-show="vm.props.authData">
+		<md-menu-item ng-repeat="menu in vm.menu.items track by $index">
+			<md-button ng-click="vm.click(menu.path)" class="md-primary">
+				{{menu.title}}
+			</md-button>
+		</md-menu-item>
+	</span>
+
+	<md-menu-item ng-show="vm.props.authData">
+		<md-button ng-click="vm.click('/settings')" class="md-primary">
+			<span>Settings</span>
+		</md-button>
+	</md-menu-item>
+
+	<md-menu-item ng-hide="vm.props.authData">
+		<md-button ng-click="vm.click('/login')" class="md-primary">
+			<span>Login</span>
+		</md-button>
+	</md-menu-item>
+
+	<md-menu-item ng-show="vm.props.authData">
+		<md-button ng-click="vm.logout()" class="md-primary">
+			<span>Logout</span>
+		</md-button>
+	</md-menu-item>
+</md-menu-content>
